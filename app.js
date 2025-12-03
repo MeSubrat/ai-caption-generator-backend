@@ -8,6 +8,7 @@ import cloudinary from "./config/cloudinary.js";
 dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -59,6 +60,6 @@ app.post("/upload-image", upload.single("image"), async (req, res) => {
 })
 
 
-app.listen(3000, () => {
-    console.log(`Server is running on PORT 3000`);
-})
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
