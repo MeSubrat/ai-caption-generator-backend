@@ -1,6 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
 import dotenv, { parse } from "dotenv";
-import fetchImageAsBase64 from "./config/fetchImageAsBase64.js";
+import fetchImageAsBase64 from '../config/fetchImageAsBase64.js';
 dotenv.config();
 
 const ai = new GoogleGenAI({
@@ -93,9 +93,13 @@ const GenerateGeminiResponse = async ({
 
         DO NOT include explanations, markdown, or extra text.
         `;
-
-
-    const { base64, mime } = await fetchImageAsBase64(imageUrl);
+    // const { base64, mime } = await fetchImageAsBase64(imageUrl);
+    let base64, mime, fetchResponse;
+    if (imageUrl) {
+        fetchResponse = await fetchImageAsBase64(imageUrl);
+        base64 = fetchResponse.base64;
+        mime = fetchResponse.mime;
+    }
 
     try {
         const response = await ai.models.generateContent({

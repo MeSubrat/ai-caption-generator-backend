@@ -5,7 +5,7 @@ import cloudinary from "./cloudinary.js";
 const storage = new CloudinaryStorage({
     cloudinary:cloudinary,
     params: {
-        folder: "caption-generator",    // your folder name in cloudinary
+        folder: "caption-generator",    //folder name in cloudinary
         allowedFormats: ["jpg", "jpeg", "png"],
         resource_type:"image",
     },
