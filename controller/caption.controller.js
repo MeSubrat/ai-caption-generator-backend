@@ -103,6 +103,7 @@ const generateCaptionFromText = async (req, res) => {
         `;
 
     try {
+        console.log('New api key: ', process.env.GEMINI_API_KEY);
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",
             systemInstruction: {
@@ -145,12 +146,6 @@ const generateCaptionFromText = async (req, res) => {
                 role: "user",
                 parts: [
                     { text: prompt },
-                    // {
-                    //     inlineData: {
-                    //         mimeType: mime,
-                    //         data: base64,
-                    //     }
-                    // }
                 ]
             }],
         });
@@ -171,4 +166,4 @@ const generateCaptionFromText = async (req, res) => {
 
 
 // export default generateCaption;
-export { generateCaption, uploadImage,generateCaptionFromText };
+export { generateCaption, uploadImage, generateCaptionFromText };

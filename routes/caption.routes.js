@@ -5,7 +5,7 @@ const router = express.Router();
 
 // router.post('/generate-response', generateCaption);
 router.post('/upload-image', upload.single("image"), uploadImage);
-router.post('/generate-response',generateCaptionFromText);
+router.post('/text-caption',generateCaptionFromText);
 
 
 
